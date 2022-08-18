@@ -38,3 +38,6 @@
 .inner_div button{
   background-color: darkcyan;
 }
+.form_error{
+  color: red;
+}
