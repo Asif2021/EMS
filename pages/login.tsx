@@ -1,10 +1,12 @@
 import styles from '../styles/Login.module.css'
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useRouter } from 'next/router'
 
 
 
 const login = () => {
+  const router = useRouter()
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
   useFormik({
     initialValues:{
@@ -16,7 +18,7 @@ const login = () => {
       password: Yup.string().min(6).required("Please enter your password"),
    }),
     onSubmit: (values, action) => {
-      alert(`your email is ${values.email} and your password is ${values.password}`);
+       router.push('/dashboard')
       action.resetForm();
     },
   });
