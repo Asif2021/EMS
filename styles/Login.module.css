@@ -22,4 +22,9 @@
 	color: red;
 	font-weight: bold;
   }
-  
+  .image{
+	background-image: url(/public/bg.jpg);
+	margin: 0 auto;
+	display: block;
+	margin-top: 20%;
+  }
