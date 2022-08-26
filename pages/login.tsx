@@ -1,17 +1,19 @@
 import styles from "../styles/login.module.css";
 import { LoginDto } from '../models/auth/login.dto';
 import { useFormik } from "formik";
+import {useRouter} from "next/router";
 
 
 
 export default function login() {
+  const router = useRouter();
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues:new LoginDto(),
       validationSchema: LoginDto.yupSchema(),
       onSubmit: (values, action) => {
-       alert(values.email);
-        action.resetForm();
+      router.push('/dashboard');
+      action.resetForm();
       },
     });
 
