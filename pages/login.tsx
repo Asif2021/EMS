@@ -8,10 +8,11 @@ import {useRouter} from "next/router";
 export default function login() {
   const router = useRouter();
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues:new LoginDto(),
-      validationSchema: LoginDto.yupSchema(),
-      onSubmit: (values, action) => {
+  useFormik({
+    initialValues: new LoginDto(),
+    validationSchema: LoginDto.yupSchema(),
+    onSubmit: (values, action) => {
+      console.log(values.email, values.password)
       router.push('/dashboard');
       action.resetForm();
       },
@@ -38,9 +39,9 @@ export default function login() {
                         id="floatingInput"
                         placeholder="name@example.com"
                         autoComplete="off"
-                        value={values.email}
-                        onChange={handleChange}
                         onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.email}
                       />
                       <label>Email address</label>
                       {errors.email && touched.email ? (
@@ -56,9 +57,9 @@ export default function login() {
                         id="floatingPassword"
                         placeholder="Password"
                         autoComplete="off"
-                        value={values.password}
-                        onChange={handleChange}
                         onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.password}
                       />
                       {errors.password && touched.password ? (
                         <div className={styles.error}>{errors.password}</div>
