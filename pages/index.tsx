@@ -1,9 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  const router = useRouter();
+const handleClick = () =>{
+router.push('/login')
+}
   return (
     <div className={styles.container}>
       <Head>
@@ -14,6 +18,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1>Hello World!!!</h1>
+        <button className='bg-success' onClick={handleClick }> Login </button>
       </main>
 
       
