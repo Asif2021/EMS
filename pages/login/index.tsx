@@ -1,4 +1,3 @@
-import styles from "../../styles/login.module.css";
 import { LoginDto } from '../../models/auth/login.dto';
 import { useFormik } from "formik";
 import {useRouter} from "next/router";
@@ -12,7 +11,6 @@ export default function login() {
     initialValues: new LoginDto(),
     validationSchema: LoginDto.yupSchema(),
     onSubmit: (values, action) => {
-      console.log(values.email, values.password)
       router.push('/dashboard');
       action.resetForm();
       },
@@ -21,97 +19,273 @@ export default function login() {
 
   return (
     <>
-      <div className={styles.body}>
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-              <div className="card border-0 shadow rounded-3 my-5">
-                <div className="card-body p-4 p-sm-5">
-                  <h5 className="card-title text-center mb-5 fw-dark fs-2">
+   <meta charSet="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="76x76"
+    href="../assets/img/apple-icon.png"
+  />
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <title>Material Dashboard 2 by Creative Tim</title>
+  {/*     Fonts and icons     */}
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
+  />
+  {/* Nucleo Icons */}
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  {/* Font Awesome Icons */}
+  {/* Material Icons */}
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+    rel="stylesheet"
+  />
+  {/* CSS Files */}
+  <link
+    id="pagestyle"
+    href="../assets/css/material-dashboard.css?v=3.0.4"
+    rel="stylesheet"
+  />
+  <div className="container position-sticky z-index-sticky top-0">
+    <div className="row">
+      <div className="col-12">
+        {/* Navbar */}
+        <nav className="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+          <div className="container-fluid ps-2 pe-0">
+            <a
+              className="navbar-brand font-weight-bolder ms-lg-0 ms-3 "
+              href="../pages/dashboard.html"
+            >
+              Material Dashboard 2
+            </a>
+            <button
+              className="navbar-toggler shadow-none ms-2"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navigation"
+              aria-controls="navigation"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon mt-2">
+                <span className="navbar-toggler-bar bar1" />
+                <span className="navbar-toggler-bar bar2" />
+                <span className="navbar-toggler-bar bar3" />
+              </span>
+            </button>
+            <div className="collapse navbar-collapse" id="navigation">
+              <ul className="navbar-nav mx-auto">
+                <li className="nav-item">
+                  <a
+                    className="nav-link d-flex align-items-center me-2 active"
+                    aria-current="page"
+                    href="../pages/dashboard.html"
+                  >
+                    <i className="fa fa-chart-pie opacity-6 text-dark me-1" />
+                    Dashboard
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link me-2" href="../pages/profile.html">
+                    <i className="fa fa-user opacity-6 text-dark me-1" />
+                    Profile
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link me-2" href="../pages/sign-up.html">
+                    <i className="fas fa-user-circle opacity-6 text-dark me-1" />
+                    Sign Up
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link me-2" href="../pages/sign-in.html">
+                    <i className="fas fa-key opacity-6 text-dark me-1" />
                     Sign In
-                  </h5>
-                  <form onSubmit={handleSubmit}>
-                    <div className="form-floating mb-3">
-                      <input
-                        name="email"
-                        type="email"
-                        className="form-control"
-                        id="floatingInput"
-                        placeholder="name@example.com"
-                        autoComplete="off"
-                        onBlur={handleBlur}
-                        onChange={handleChange}
-                        value={values.email}
-                      />
-                      <label>Email address</label>
-                      {errors.email && touched.email ? (
-                        <div className={styles.error}>{errors.email}</div>
-                      ) : null}
+                  </a>
+                </li>
+              </ul>
+              <ul className="navbar-nav d-lg-block d-none">
+                <li className="nav-item">
+                  <a
+                    href="https://www.creative-tim.com/product/material-dashboard"
+                    className="btn btn-sm mb-0 me-1 bg-gradient-dark"
+                  >
+                    Free download
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        {/* End Navbar */}
+      </div>
+    </div>
+  </div>
+  <main className="main-content  mt-0">
+    <div
+      className="page-header align-items-start min-vh-100"
+      style={{
+        backgroundImage:
+          'url("https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80")'
+      }}
+    >
+      <span className="mask bg-gradient-dark opacity-6" />
+      <div className="container my-auto">
+        <div className="row">
+          <div className="col-lg-4 col-md-8 col-12 mx-auto">
+            <div className="card z-index-0 fadeIn3 fadeInBottom">
+              <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div className="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                  <h4 className="text-white font-weight-bolder text-center mt-2 mb-0">
+                    Sign in
+                  </h4>
+                  <div className="row mt-3">
+                    <div className="col-2 text-center ms-auto">
+                      <a className="btn btn-link px-3" href="javascript:;">
+                        <i className="fa fa-facebook text-white text-lg" />
+                      </a>
                     </div>
-
-                    <div className="form-floating mb-3">
-                      <input
-                        name="password"
-                        type="password"
-                        className="form-control"
-                        id="floatingPassword"
-                        placeholder="Password"
-                        autoComplete="off"
-                        onBlur={handleBlur}
-                        onChange={handleChange}
-                        value={values.password}
-                      />
-                      {errors.password && touched.password ? (
-                        <div className={styles.error}>{errors.password}</div>
-                      ) : null}
-                      <label>Password</label>
+                    <div className="col-2 text-center px-1">
+                      <a className="btn btn-link px-3" href="javascript:;">
+                        <i className="fa fa-github text-white text-lg" />
+                      </a>
                     </div>
-
-                    <div className="form-check mb-3">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="rememberPasswordCheck"
-                      />
-                      <label className="form-check-label">
-                        Remember password
-                      </label>
+                    <div className="col-2 text-center me-auto">
+                      <a className="btn btn-link px-3" href="javascript:;">
+                        <i className="fa fa-google text-white text-lg" />
+                      </a>
                     </div>
-                    <div className="d-grid">
-                      <button
-                        className="btn btn-primary btn_login text-uppercase fw-bold"
-                        type="submit"
-                      >
-                        Sign in
-                      </button>
-                    </div>
-                    <hr className="my-4" />
-                    <div className="d-grid mb-2">
-                      <button
-                        className="btn text-uppercase bg-danger fw-bold btn_login text-white"
-                        type="submit"
-                      >
-                        <i className="fab fa-google me-2"></i> Sign in with
-                        Google
-                      </button>
-                    </div>
-                    <div className="d-grid">
-                      <button
-                        className="btn bg-primary btn_login text-uppercase fw-bold text-white"
-                        type="submit"
-                      >
-                        <i className="fab fa-facebook-f me-2"></i> Sign in with
-                        Facebook
-                      </button>
-                    </div>
-                  </form>
+                  </div>
                 </div>
+              </div>
+              <div className="card-body">
+                {/* form started */}
+                <form role="form" className="text-start" onSubmit={handleSubmit}>
+                  <div className="input-group input-group-outline my-3">
+                    <input name="email" type="email" className="form-control" placeholder='Email'
+                        autoComplete="off"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.email} />
+                        {errors.email && touched.email ? (
+                        <div style={{color:'red'}}>{errors.email}</div>
+                      ) : null}
+                  </div>
+                  <div className="input-group input-group-outline mb-3">
+                   <input  name="password" type="password" className="form-control" placeholder='Password'
+                        autoComplete="off"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.password} />
+                        {errors.password && touched.password ? (
+                        <div style={{color:'red'}}>{errors.password}</div>
+                      ) : null}
+                  </div>
+                  <div className="form-check form-switch d-flex align-items-center mb-3">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="rememberMe"
+                      />
+                    <label
+                      className="form-check-label mb-0 ms-3"
+                      htmlFor="rememberMe"
+                    >
+                      Remember me
+                    </label>
+                  </div>
+                  <div className="text-center">
+                    <button
+                      type="submit"
+                      className="btn bg-gradient-primary w-100 my-4 mb-2"
+                    >
+                      Sign in
+                    </button>
+                  </div>
+                  <p className="mt-4 text-sm text-center">
+                    Don't have an account?
+                    <a
+                      href="../pages/sign-up.html"
+                      className="text-primary text-gradient font-weight-bold"
+                    >
+                      Sign up
+                    </a>
+                  </p>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+      <footer className="footer position-absolute bottom-2 py-2 w-100">
+        <div className="container">
+          <div className="row align-items-center justify-content-lg-between">
+            <div className="col-12 col-md-6 my-auto">
+              <div className="copyright text-center text-sm text-white text-lg-start">
+                © , made with <i className="fa fa-heart" aria-hidden="true" />{" "}
+                by
+                <a
+                  href="https://www.creative-tim.com"
+                  className="font-weight-bold text-white"
+                  target="_blank"
+                >
+                  Creative Tim
+                </a>
+                for a better web.
+              </div>
+            </div>
+            <div className="col-12 col-md-6">
+              <ul className="nav nav-footer justify-content-center justify-content-lg-end">
+                <li className="nav-item">
+                  <a
+                    href="https://www.creative-tim.com"
+                    className="nav-link text-white"
+                    target="_blank"
+                  >
+                    Creative Tim
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="https://www.creative-tim.com/presentation"
+                    className="nav-link text-white"
+                    target="_blank"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="https://www.creative-tim.com/blog"
+                    className="nav-link text-white"
+                    target="_blank"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="https://www.creative-tim.com/license"
+                    className="nav-link pe-0 text-white"
+                    target="_blank"
+                  >
+                    License
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+ </>
+
   );
 }
