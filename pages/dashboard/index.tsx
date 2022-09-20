@@ -79,11 +79,11 @@ const dashboard = () => {
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white " href="../pages/tables.html">
+          <a className="nav-link text-white " href="../dashboard/product">
             <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i className="material-icons opacity-10">table_view</i>
             </div>
-            <span className="nav-link-text ms-1">Tables</span>
+            <span className="nav-link-text ms-1">Product</span>
           </a>
         </li>
         <li className="nav-item">
