@@ -285,7 +285,17 @@ export default function login() {
       </footer>
     </div>
   </main>
+<<<<<<< HEAD
  </>
 
   );
 }
+=======
+  {/*   Core JS Files   */}
+  {/* Github buttons */}
+  {/* Control Center for Material Dashboard: parallax effects, scripts for the example pages etc */}
+</>
+
+  );
+}
+>>>>>>> f94d61a7c4153285e50124b2d2319b0ae986076d

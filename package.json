@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "bootstrap": "^5.2.0",
     "font-awesome": "^4.7.0",
     "formik": "^2.2.9",
+    "bootstrap": "4.0.0-alpha.6",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -25,6 +25,7 @@
     "@types/node": "18.7.6",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
+    "bootstrap": "4.0.0-alpha.6",
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "typescript": "4.7.4"

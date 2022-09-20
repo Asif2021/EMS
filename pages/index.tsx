@@ -1,16 +1,22 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css'
 import {useRouter} from "next/router";
 
 
 const Home: NextPage = () => {
   const router = useRouter();
+<<<<<<< HEAD
   const handleclick = ()=>{
     router.push('/login');
 
   }
+=======
+const handleClick = () =>{
+router.push('/login')
+}
+>>>>>>> f94d61a7c4153285e50124b2d2319b0ae986076d
   return (
     <div className={styles.container}>
       <Head>
@@ -21,7 +27,11 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1>Hello World!!!</h1>
+<<<<<<< HEAD
         <button className='bg-primary text-white' onClick={handleclick}>Login</button>
+=======
+        <button className='bg-success' onClick={handleClick }> Login </button>
+>>>>>>> f94d61a7c4153285e50124b2d2319b0ae986076d
       </main>
 
       
